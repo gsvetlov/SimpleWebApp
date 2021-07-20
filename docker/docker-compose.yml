@@ -1,0 +1,6 @@
+services:
+  tomcat:
+    container_name: tomcat-local
+    image: tomcat-local
+    ports:
+      - "8189:8080"
