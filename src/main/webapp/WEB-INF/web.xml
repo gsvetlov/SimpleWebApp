@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          id="WedApp_ID" version="4.0">
 
+    <!--
     <servlet>
         <servlet-name>HelloWorld</servlet-name>
         <servlet-class>ru.svetlov.webapp.HelloWorld</servlet-class>
@@ -13,5 +14,6 @@
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/welcome</url-pattern>
     </servlet-mapping>
+    -->
 
 </web-app>
