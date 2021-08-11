@@ -1,46 +1,61 @@
 package ru.svetlov.webapp.domain;
 
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+@Table(name = "products")
+@NamedQuery(name = "getAllProducts", query = "from Product p")
 public class Product {
-    private long id;
-    private String name;
-    private double cost;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-    public Product(long id, String name, double cost) {
-        this.id = id;
-        this.name = name;
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "cost", precision = 12, scale = 2)
+    private BigDecimal cost;
+
+    public Product(String name, BigDecimal cost) {
+        this.title = name;
         this.cost = cost;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
+    protected Product() {
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + title + '\'' +
                 ", cost=" + cost +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    protected void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
     }
 }
